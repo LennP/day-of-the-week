@@ -15,7 +15,8 @@ _LOGGER = logging.getLogger(__name__)
 
 def get_algorithms():
     """
-    Dynamically imports all date_to_day_of_week functions from modules in the './day_of_the_week' directory.
+    Dynamically imports all date_to_day_of_week functions from
+    modules in the './day_of_the_week' directory.
     """
     algorithms = []
     directory = "./day_of_the_week"  # Relative path from the project root
