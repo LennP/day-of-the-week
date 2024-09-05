@@ -16,8 +16,8 @@ class Weekday(IntEnum):
     SATURDAY = 6
 
 
-DECADE_VALUES = [0, 5, 3, 1]
-MONTH_VALUES = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
+DECADE_VALUES: list[int] = [0, 5, 3, 1]
+MONTH_VALUES: list[int] = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 
 
 def is_leap_year(year):
@@ -58,18 +58,3 @@ if __name__ == "__main__":
         date_to_day_of_week(datetime(year=1, month=1, day=1)).name.title(),
     )
     print("Today is a", date_to_day_of_week(datetime.now()).name.title())
-
-
-# def date_to_day_of_week(date: datetime) -> Weekday:
-#     y = date.year
-#     m = date.month
-#     d = date.day
-
-#     if m < 3:
-#         m += 12
-#         y -= 1
-
-#     t = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
-#     v = (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7
-
-#     return Weekday((v + 5) % 7)  # Adjusted to start week from Monday
