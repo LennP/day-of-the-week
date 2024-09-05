@@ -27,9 +27,7 @@ def get_algorithms():
     return algorithms
 
 
-ALGORITHMS: list[tuple[str, Callable[[datetime], IntEnum]]] = (
-    get_algorithms()
-)
+ALGORITHMS: list[tuple[str, Callable[[datetime], IntEnum]]] = get_algorithms()
 
 
 @pytest.mark.parametrize("module_name,date_to_day_of_week", ALGORITHMS)
