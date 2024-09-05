@@ -18,11 +18,15 @@ def get_algorithms():
     modules in the './day_of_the_week' directory.
     """
     algorithms = []
-    directory = "./day_of_the_week"  # Relative path from the project root
+    directory = (
+        "./day_of_the_week/algorithms"  # Relative path from the project root
+    )
     for file in os.listdir(directory):
         if file.endswith(".py") and not file.startswith("__"):
             module_name = file[:-3]  # Remove the .py extension
-            module = importlib.import_module(f"day_of_the_week.{module_name}")
+            module = importlib.import_module(
+                f"day_of_the_week.algorithms.{module_name}"
+            )
             algorithms.append((module_name, module.date_to_day_of_week))
     return algorithms
 

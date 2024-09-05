@@ -1,20 +1,8 @@
 """Intermediate day-of-the-week algorithm."""
 
 from datetime import datetime
-from enum import IntEnum
 
-
-class Weekday(IntEnum):
-    """Day of the week."""
-
-    SUNDAY = 0
-    MONDAY = 1
-    TUESDAY = 2
-    WEDNESDAY = 3
-    THURSDAY = 4
-    FRIDAY = 5
-    SATURDAY = 6
-
+from day_of_the_week.models import Weekday
 
 MONTH_VALUES: list[int] = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 

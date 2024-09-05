@@ -1,28 +1,12 @@
 """Simple day-of-the-week algorithm."""
 
 from datetime import datetime
-from enum import IntEnum
 
-
-class Weekday(IntEnum):
-    """Day of the week."""
-
-    SUNDAY = 0
-    MONDAY = 1
-    TUESDAY = 2
-    WEDNESDAY = 3
-    THURSDAY = 4
-    FRIDAY = 5
-    SATURDAY = 6
-
+from day_of_the_week.models import Weekday
+from day_of_the_week.util import is_leap_year
 
 DECADE_VALUES: list[int] = [0, 5, 3, 1]
 MONTH_VALUES: list[int] = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
-
-
-def is_leap_year(year):
-    """Determine if the given year is a leap year."""
-    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
 
 def date_to_day_of_week(date: datetime) -> Weekday:
