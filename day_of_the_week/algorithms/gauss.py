@@ -14,17 +14,15 @@ MONTH_OFFSET = {
 def date_to_day_of_week(date: datetime) -> Weekday:
     """Returns the day of the week for a given date."""
 
-    y = date.year
-    m = date.month
-    d = date.day
+    day_of_the_week = (
+        6 * ((date.year - 1) % 400)
+        + 4 * ((date.year - 1) % 100)
+        + 5 * ((date.year - 1) % 4)
+        + MONTH_OFFSET[int(is_leap_year(date.year))][date.month - 1]
+        + date.day
+    ) % 7
 
-    # Step 1: Calculate the 1st of January
-    d_1 = (5 * ((y - 1) % 4) + 4 * ((y - 1) % 100) + 6 * ((y - 1) % 400)) % 7
-
-    # Step 2: Month offset
-    w = (d_1 + MONTH_OFFSET[int(is_leap_year(y))][m - 1] + d) % 7
-
-    return Weekday(w)
+    return Weekday(day_of_the_week)
 
 
 if __name__ == "__main__":

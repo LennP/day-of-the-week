@@ -1,4 +1,4 @@
-"""Intermediate day-of-the-week algorithm."""
+"""Sakamoto's day-of-the-week algorithm."""
 
 from datetime import datetime
 
@@ -10,19 +10,16 @@ MONTH_OFFSET: list[int] = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 def date_to_day_of_week(date: datetime) -> Weekday:
     """Returns the day of the week for a given date."""
 
-    y = date.year
-    y -= date.month < 3
-
-    v = (
-        y
-        + y // 4
-        - y // 100
-        + y // 400
+    day_of_the_week = (
+        (date.year - (date.month < 3))
+        + (date.year - (date.month < 3)) // 4
+        - (date.year - (date.month < 3)) // 100
+        + (date.year - (date.month < 3)) // 400
         + MONTH_OFFSET[date.month - 1]
         + date.day
     ) % 7
 
-    return Weekday(v)
+    return Weekday(day_of_the_week)
 
 
 if __name__ == "__main__":
