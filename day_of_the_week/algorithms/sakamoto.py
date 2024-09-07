@@ -11,10 +11,10 @@ def date_to_day_of_week(date: datetime) -> Weekday:
     """Returns the day of the week for a given date."""
 
     day_of_the_week = (
-        (date.year - (date.month < 3))
-        + (date.year - (date.month < 3)) // 4
-        - (date.year - (date.month < 3)) // 100
         + (date.year - (date.month < 3)) // 400
+        - (date.year - (date.month < 3)) // 100
+        + (date.year - (date.month < 3)) // 4
+        + (date.year - (date.month < 3))
         + MONTH_OFFSET[date.month - 1]
         + date.day
     ) % 7
